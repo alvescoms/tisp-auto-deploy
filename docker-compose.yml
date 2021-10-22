@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  api:
+    working_dir: /usr/src/app/api
+    build: ./api/
+    command: npm run dev
+    ports: 
+      - 4444:4444
+    volumes: 
+      - ./api:/usr/src/app/api
+    env_file:
+      - ./api/.env
+  database:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: 123456

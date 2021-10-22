@@ -1,0 +1,22 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Deploy {
+  id Int @id @default(autoincrement())
+  code String @db.Char(6)
+  name String @db.VarChar(50)
+  description String? @db.VarChar(100)
+  branch String @db.VarChar(20)
+  buildPath String @db.VarChar(150)
+  destinantioPath String @db.VarChar(150)
+  beforeBuildCommand String? @db.VarChar(100)
+  buildCommand String @db.VarChar(100)
+  afterBuildCommand String? @db.VarChar(100)
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+}

@@ -1,0 +1,27 @@
+{
+  "name": "tisp-auto-deploy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx prisma migrate dev && nodemon --legacy-watch --ignore ./src/temp ./src/server.ts",
+    "build": "tsc"
+  },
+  "author": "Gustavo Henrique",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.10.3",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.13",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.2.1",
+    "express": "^4.17.1",
+    "prisma": "^3.2.1"
+  }
+}
